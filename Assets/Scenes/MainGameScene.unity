@@ -268,8 +268,8 @@ Transform:
   m_GameObject: {fileID: 23730786}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.9427, y: 4.420001, z: 17.87}
-  m_LocalScale: {x: 11.778821, y: 3.2112534, z: 0.8009016}
+  m_LocalPosition: {x: 2.9427, y: 5.5112, z: 17.87}
+  m_LocalScale: {x: 11.778821, y: 5.4426646, z: 0.8009016}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1730328310}
@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 165655935}
   - component: {fileID: 165655938}
   - component: {fileID: 165655937}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bubble1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -468,6 +468,134 @@ Transform:
   - {fileID: 990706417}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &219448756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 219448760}
+  - component: {fileID: 219448757}
+  - component: {fileID: 219448758}
+  m_Layer: 0
+  m_Name: WeaponCam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!20 &219448757
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219448756}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 4
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 128
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!114 &219448758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219448756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 1
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
+--- !u!4 &219448760
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219448756}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1784418156}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &227251212
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,7 +638,7 @@ GameObject:
   - component: {fileID: 247985208}
   - component: {fileID: 247985210}
   - component: {fileID: 247985209}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -779,8 +907,8 @@ Transform:
   m_GameObject: {fileID: 398889641}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.15, y: 3.9175, z: 14.519438}
-  m_LocalScale: {x: 0.7573782, y: 2.6585882, z: 6.0628433}
+  m_LocalPosition: {x: 9.15, y: 5.0994, z: 14.519438}
+  m_LocalScale: {x: 0.7573782, y: 5.0219584, z: 6.0628433}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1730328310}
@@ -1201,8 +1329,8 @@ Transform:
   m_GameObject: {fileID: 990706416}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.4698, z: 1.6542}
-  m_LocalScale: {x: 1, y: 2.7940075, z: 6.2452316}
+  m_LocalPosition: {x: 0, y: 0.9183, z: 1.6542}
+  m_LocalScale: {x: 1, y: 5.5443087, z: 6.2452316}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 198965212}
@@ -1321,8 +1449,8 @@ Transform:
   m_GameObject: {fileID: 1131921459}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.9427, y: 4.420001, z: 11.09}
-  m_LocalScale: {x: 11.778821, y: 3.2112534, z: 0.8009016}
+  m_LocalPosition: {x: 2.9427, y: 5.5112, z: 11.09}
+  m_LocalScale: {x: 11.778821, y: 5.4426646, z: 0.8009016}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1730328310}
@@ -1726,7 +1854,7 @@ Transform:
   m_GameObject: {fileID: 1262563803}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.9427, y: 5.63, z: 14.519438}
+  m_LocalPosition: {x: 2.9427, y: 7.86, z: 14.519438}
   m_LocalScale: {x: 11.778821, y: 0.7804914, z: 6.0628433}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1857,7 +1985,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   levelList:
-  - {fileID: 255447392445137574, guid: 076385d9bb4a2a145bfbddb43f029504, type: 3}
+  - {fileID: 1659494924793629172, guid: f3f5eea3a873fb34582d814610145b0b, type: 3}
+  - {fileID: 3302810715181361717, guid: e67d709ede4e10b4f85fa5beac02a874, type: 3}
+  - {fileID: 3302810715181361717, guid: 03a97b15faa604045beb92b6b3dacf4d, type: 3}
+  - {fileID: 3302810715181361717, guid: 737e7470a8dec8248b8ab869be018a7c, type: 3}
+  - {fileID: 7027737168812449512, guid: 1ecc3a027c8d85d43bf786d8e6983fdd, type: 3}
   - {fileID: 255447392445137574, guid: 076385d9bb4a2a145bfbddb43f029504, type: 3}
   StartTransitionAnchor: {fileID: 1146233698}
 --- !u!1 &1718859906
@@ -1871,7 +2003,7 @@ GameObject:
   - component: {fileID: 1718859907}
   - component: {fileID: 1718859910}
   - component: {fileID: 1718859909}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BubbleGauntlet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2053,7 +2185,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 127
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -2078,6 +2210,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 219448760}
   - {fileID: 1718859907}
   - {fileID: 2042447451}
   m_Father: {fileID: 1789433249}
@@ -2098,7 +2231,8 @@ MonoBehaviour:
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
-  m_Cameras: []
+  m_Cameras:
+  - {fileID: 219448757}
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
@@ -2307,7 +2441,7 @@ GameObject:
   - component: {fileID: 2028686288}
   - component: {fileID: 2028686291}
   - component: {fileID: 2028686290}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bubble2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2501,7 +2635,7 @@ GameObject:
   - component: {fileID: 2042788122}
   - component: {fileID: 2042788125}
   - component: {fileID: 2042788124}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bubble3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
