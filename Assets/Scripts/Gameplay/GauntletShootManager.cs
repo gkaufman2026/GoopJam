@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -9,7 +10,10 @@ public class GauntletShootManager : MonoBehaviour
 
     [SerializeField] float shootForce = 100;
 
-    float bubbleCount = 3;
+    float maxBubbles = 3;
+    float currentBubbles;
+
+    [SerializeField] List<GameObject> bubbles;
 
     InputCollector input;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -18,14 +22,26 @@ public class GauntletShootManager : MonoBehaviour
         input = GetComponent<InputCollector>();
 
         input.playerActions.Attack.started += ctx => TryShoot();
-        
+
         //ctx.ReadValue<bool>();
+
+        LevelManager.Instance.RestartLevelEvent.AddListener(OnBeginLevel);
+        LevelManager.Instance.StartLevelEvent.AddListener(OnBeginLevel);
     }
 
     void TryShoot()
     {
         // TODO: Manage ammunition
+        if (currentBubbles <= 0)
+        {
+            Debug.LogWarning("NO BUBBLES LEFT!!! TODO: ALERT PLAYER");
+            return;
+        }
+
+        currentBubbles -= 1;
+
         LaunchProjectile();
+        SetBubbleVisual();
     }
 
     void LaunchProjectile()
@@ -36,9 +52,32 @@ public class GauntletShootManager : MonoBehaviour
         rb.AddForce(shootDirectionTarget.forward * shootForce);
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnBeginLevel(Level level)
     {
-        
+        maxBubbles = level.bubbleCount;
+        currentBubbles = maxBubbles;
+
+        SetBubbleVisual();
+    }
+
+    void SetBubbleVisual()
+    {
+        foreach (var bubble in bubbles)
+        {
+            bubble.SetActive(true);
+        }
+
+        if (currentBubbles < 3)
+        {
+            bubbles[2].SetActive(false);
+        }
+        if (currentBubbles < 2)
+        {
+            bubbles[1].SetActive(false);
+        }
+        if (currentBubbles < 1)
+        {
+            bubbles[0].SetActive(false);
+        }
     }
 }
