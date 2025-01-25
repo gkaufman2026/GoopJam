@@ -5,6 +5,8 @@ public class GravityBubble : MonoBehaviour
 {
     List<GravityTraveller> travellers;
 
+    [SerializeField] bool permanentBubble;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -12,6 +14,12 @@ public class GravityBubble : MonoBehaviour
 
         // TODO: When this object is created, we need to do a raycast to check
         // for objects that are already inside the Gravity Bubble so we can add them to the list of travellers
+
+        if (!permanentBubble)
+        {
+            LevelManager.Instance.RestartLevelEvent.AddListener(OnLevelRestart);
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -53,6 +61,11 @@ public class GravityBubble : MonoBehaviour
         // else, doesn't matter
     }
 
+    void OnLevelRestart(Level level)
+    {
+        Destroy(gameObject);
+    }
+
     private void OnDestroy()
     {
         foreach(var tvlr in travellers)
@@ -64,5 +77,11 @@ public class GravityBubble : MonoBehaviour
         }
 
         travellers.Clear();
+
+        if (!permanentBubble)
+        {
+            LevelManager.Instance.RestartLevelEvent.RemoveListener(OnLevelRestart);
+        }
+
     }
 }

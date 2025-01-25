@@ -44,6 +44,8 @@ public class PlayerMovement : MonoBehaviour
         input.playerActions.Move.performed += ctx => MyInput(ctx.ReadValue<Vector2>());
         input.playerActions.Move.canceled += ctx => MyInput(ctx.ReadValue<Vector2>());
         input.playerActions.Jump.performed += ctx => TryJump();
+
+        LevelManager.Instance.RestartLevelEvent.AddListener(OnRestart);
     }
 
     private void Update()
@@ -52,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
 
         //MyInput();
-        SpeedControl();
+        SpeedControl();   
 
         // handle drag
         if (grounded)
@@ -65,7 +67,6 @@ public class PlayerMovement : MonoBehaviour
     {
         MovePlayer();
     }
-
     private void MyInput(Vector2 moveValue)
     {
         horizontalInput = moveValue.x;
@@ -121,5 +122,12 @@ public class PlayerMovement : MonoBehaviour
     private void ResetJump()
     {
         readyToJump = true;
+    }
+
+    private void OnRestart(Level level)
+    {
+        rb.MovePosition(level.levelStartPoint.position);
+        rb.MoveRotation(level.levelStartPoint.rotation);
+        rb.linearVelocity = Vector3.zero;
     }
 }

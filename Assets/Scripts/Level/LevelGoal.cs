@@ -11,7 +11,7 @@ public class LevelGoal : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        manager = FindAnyObjectByType<LevelManager>();
+        manager = LevelManager.Instance;
     }
 
     // Update is called once per frame
