@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,11 +9,18 @@ public class LevelManager : MonoBehaviour
     public UnityEvent<Level> RestartLevelEvent;
     public UnityEvent<Level> StartLevelEvent;
 
-    [SerializeField] Level testLevel;
+    [SerializeField] List<Level> levelList;
+
+    //[SerializeField] Level testLevelPrefab;
+
+    [SerializeField] GameObject StartTransitionAnchor;
 
     private Level currentLevel;
+    private Level queuedLevel;
 
     LevelState currentState;
+
+    int currentLevelIndex = 0;
 
     bool gamerunning = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -26,12 +34,6 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         // makeshift late start
-        // TODO: Actual level management
-        if (!gamerunning)
-        {
-            StartLevel(testLevel);
-            gamerunning = true;
-        }
     }
 
     void StartLevel(Level newLevel)
@@ -55,6 +57,43 @@ public class LevelManager : MonoBehaviour
             return;
 
         currentState = LevelState.NoLevel;
+
+        GetNextLevel();
+    }
+
+    public void GetNextLevel()
+    {
+        // TODO: Add a sequence of levels
+        currentLevelIndex++;
+        if (currentLevelIndex >= levelList.Count)
+        {
+            Debug.LogWarning("WE ARE OUT OF NEW LEVELS! GOING BACK TO FIRST LEVEL.");
+            currentLevelIndex = 0;
+        }
+
+        // Keep an eye on how this works if there are rotation changes
+        // It should work but I'm not 100% sure
+        Level nextLevel = Instantiate(levelList[currentLevelIndex], currentLevel.transitionAnchor.transform.position, currentLevel.transitionAnchor.transform.rotation);
+        queuedLevel = nextLevel;
+    }
+
+    public void StartNextLevel()
+    {
+        StartLevel(queuedLevel);
+    }
+
+    public void StartGame()
+    {
+        Vector3 pos = StartTransitionAnchor.gameObject.transform.position;
+        if (currentLevel != null)
+        {
+            pos = currentLevel.transitionAnchor.transform.position;
+        }
+
+        //  testLevelPrefab
+
+        Level nextLevel = Instantiate(levelList[currentLevelIndex], pos, Quaternion.identity);
+        StartLevel(nextLevel);
     }
 
     public void TryRestartLevel()

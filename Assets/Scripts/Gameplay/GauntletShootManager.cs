@@ -10,7 +10,7 @@ public class GauntletShootManager : MonoBehaviour
 
     [SerializeField] float shootForce = 100;
 
-    float maxBubbles = 3;
+    float maxBubbles = 0;
     float currentBubbles;
 
     [SerializeField] List<GameObject> bubbles;
@@ -27,6 +27,8 @@ public class GauntletShootManager : MonoBehaviour
 
         LevelManager.Instance.RestartLevelEvent.AddListener(OnBeginLevel);
         LevelManager.Instance.StartLevelEvent.AddListener(OnBeginLevel);
+
+        SetBubbleVisual();
     }
 
     void TryShoot()
