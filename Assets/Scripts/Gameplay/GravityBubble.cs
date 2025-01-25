@@ -57,7 +57,10 @@ public class GravityBubble : MonoBehaviour
     {
         foreach(var tvlr in travellers)
         {
-            tvlr.SwapGravity(GravityState.Down);
+            if (tvlr != null)
+            {
+                tvlr.SwapGravity(GravityState.Down);
+            }           
         }
 
         travellers.Clear();
