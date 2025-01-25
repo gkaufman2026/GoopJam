@@ -2388,7 +2388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 906f0e673c97149488dd2c28d0d2e156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vaporwaveMaterial: {fileID: 2100000, guid: 5f0669ac8d0edb94cb96522509dd4975, type: 2}
+  vaporwaveMaterial: {fileID: 2100000, guid: 5338646621ca48d47bffb5e6704c2e7e, type: 2}
   Y2KMaterial: {fileID: 2100000, guid: 37decec7a1ff32d43b87ce9f6e80bcd1, type: 2}
 --- !u!114 &1654867727
 MonoBehaviour:
