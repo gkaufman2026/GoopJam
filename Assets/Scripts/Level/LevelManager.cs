@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance;
     public UnityEvent<Level> RestartLevelEvent;
     public UnityEvent<Level> StartLevelEvent;
+    public UnityEvent<Level> CompleteLevelEvent;
 
     [SerializeField] List<Level> levelList;
 
@@ -58,6 +59,8 @@ public class LevelManager : MonoBehaviour
 
         currentState = LevelState.NoLevel;
 
+        CompleteLevelEvent.Invoke(currentLevel);
+      
         GetNextLevel();
     }
 
@@ -80,6 +83,7 @@ public class LevelManager : MonoBehaviour
     public void StartNextLevel()
     {
         StartLevel(queuedLevel);
+
     }
 
     public void StartGame()
@@ -92,7 +96,7 @@ public class LevelManager : MonoBehaviour
 
         //  testLevelPrefab
 
-        Level nextLevel = Instantiate(levelList[currentLevelIndex], pos, Quaternion.identity);
+        Level nextLevel = Instantiate(levelList[currentLevelIndex], pos, Quaternion.Euler(Vector3.up * 90f));
         StartLevel(nextLevel);
     }
 

@@ -8,6 +8,8 @@ public class GravityTraveller : MonoBehaviour
     [Tooltip("This event is invoked when the Gravity Traveller swaps gravity.")]
     public UnityEvent<GravityState> gravityEvent;
 
+    public Vector3 GetCurrentForce => gravitySimulator.force;
+
     ConstantForce gravitySimulator;
     private void Start()
     {

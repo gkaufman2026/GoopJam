@@ -1230,6 +1230,7 @@ MonoBehaviour:
   levelStartPoint: {fileID: 5359969961295550387}
   bubbleCount: 1
   transitionAnchor: {fileID: 8598122580858264773}
+  levelNumber: 2
   geometryRenderers:
   - {fileID: 5201238145259788302}
   - {fileID: 3254887481121314561}
@@ -1242,6 +1243,7 @@ MonoBehaviour:
   - {fileID: 3654011069004616447}
   - {fileID: 5396876752544624232}
   - {fileID: 7314010863875861023}
+  - {fileID: 8984632750832347961}
   - {fileID: 1969012532808998030}
   - {fileID: 5286572586926202908}
   - {fileID: 6179687984742485759}

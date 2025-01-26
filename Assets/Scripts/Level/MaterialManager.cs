@@ -18,6 +18,12 @@ public class MaterialManager : MonoBehaviour
     {
         geometryRenderers = level.geometryRenderers;
         SetMaterialState(GravityState.Down);
+
+        foreach (Renderer r in geometryRenderers)
+        {
+            r.material = Y2KMaterial;
+            //r.sharedMaterial.SetFloat("_FadeValue", 0);
+        }
     }
 
     public void SetMaterialState(GravityState state)
@@ -35,6 +41,28 @@ public class MaterialManager : MonoBehaviour
         foreach (Renderer r in geometryRenderers)
         {
             r.material = m;
+
+            r.sharedMaterial.SetFloat("_FadeValue", 0.5f);
         }
+    }
+
+    public void SetFadeState(float fade)
+    {
+        if (geometryRenderers != null)
+        {
+            foreach (Renderer r in geometryRenderers)
+            {
+                if (fade == 0)
+                {
+                    r.material = Y2KMaterial;
+                } else
+                {
+                    r.material = vaporwaveMaterial;
+                    r.sharedMaterial.SetFloat("_FadeValue", fade);
+                }
+            }
+        }
+        
+
     }
 }
