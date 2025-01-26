@@ -14,6 +14,7 @@ public class PlayerSoundManager : MonoBehaviour
     [SerializeField] AudioClip reloadClip;
     [SerializeField] float reloadDelay = 0.2f;
     [SerializeField] AudioClip landClip;
+    [SerializeField] AudioClip dashClip;
 
     [SerializeField] List<AudioClip> footstepList;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -55,7 +56,12 @@ public class PlayerSoundManager : MonoBehaviour
 
     public void LandEvent()
     {
-        ActivateSound(landClip);
+        footstepSource.PlayOneShot(landClip);
+    }
+
+    public void DashEvent()
+    {
+        ActivateSound(dashClip);
     }
 
     void ActivateSound(AudioClip sound)
