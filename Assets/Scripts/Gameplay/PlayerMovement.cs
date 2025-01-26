@@ -13,8 +13,18 @@ public class PlayerMovement : MonoBehaviour
     public float airMultiplier;
     bool readyToJump;
 
+    public float slowToMaxComponent = 0.3f;
+
     [HideInInspector] public float walkSpeed;
     [HideInInspector] public float sprintSpeed;
+
+    [Header("Dash")]
+    public float dashSpeed = 0.4f;
+    public float unlimitedSpeedDuration = 0.73f;
+    bool unlimitedSpeedActive = false;
+
+    float dashTime;
+    bool canDash;
 
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
@@ -35,7 +45,9 @@ public class PlayerMovement : MonoBehaviour
     Vector3 moveDirection;
 
     Rigidbody rb;
+    GravityTraveller traveller;
     [SerializeField] InputCollector input;
+    [SerializeField] GameObject CameraForVerticalLook;
 
     [SerializeField] float timeBetweenFootsteps = 1; // this is modified by speed;
     float lastFootstepTime;
@@ -44,17 +56,23 @@ public class PlayerMovement : MonoBehaviour
     public UnityEvent JumpEvent;
     public UnityEvent FootstepEvent;
     public UnityEvent LandEvent;
+    public UnityEvent DashEvent;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+
+        traveller = GetComponent<GravityTraveller>();
 
         readyToJump = true;
 
         //input = GetComponent<InputCollector>();
         input.playerActions.Move.performed += ctx => MyInput(ctx.ReadValue<Vector2>());
         input.playerActions.Move.canceled += ctx => MyInput(ctx.ReadValue<Vector2>());
+
         input.playerActions.Jump.performed += ctx => TryJump();
+
+        input.playerActions.Sprint.performed += ctx => TryDash();
 
         LevelManager.Instance.RestartLevelEvent.AddListener(OnRestart);
     }
@@ -69,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
         if (lastGrounded != grounded && grounded == true)
         {
             LandEvent.Invoke();
+            canDash = true;
         } else if (lastGrounded == true && !grounded)
         {
             coyoteTimeStart = Time.time;
@@ -121,6 +140,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void TryDash()
+    {
+        if (canDash)
+            Dash();
+    }
+
     private void MovePlayer()
     {
         // calculate movement direction
@@ -139,10 +164,23 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 flatVel = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
 
+        if (unlimitedSpeedActive)
+        {
+            if (Time.time - dashTime >= unlimitedSpeedDuration)
+            {
+                unlimitedSpeedActive = false;
+            }
+            else
+            {
+                rb.AddForce(traveller.GetCurrentForce * -1); //  * Time.deltaTime
+                return;
+            }          
+        }
+
         // limit velocity if needed
         if (flatVel.magnitude > moveSpeed)
         {
-            Vector3 limitedVel = flatVel.normalized * moveSpeed;
+            Vector3 limitedVel = flatVel.normalized * moveSpeed + ((flatVel - flatVel.normalized * moveSpeed) * slowToMaxComponent); // * Time.deltaTime);
             rb.linearVelocity = new Vector3(limitedVel.x, rb.linearVelocity.y, limitedVel.z);
         }
     }
@@ -155,6 +193,21 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
 
         JumpEvent.Invoke();
+    }
+
+    private void Dash()
+    {
+        float magnitude = Mathf.Abs(rb.linearVelocity.y); //.magnitude;
+
+        // (camera's vertical look component + player move component) * magnitude of their movement + a bit more
+        rb.linearVelocity = (CameraForVerticalLook.transform.forward.normalized.y * Vector3.up + moveDirection.normalized) * (magnitude + dashSpeed);
+
+        dashTime = Time.time;
+
+        canDash = false;
+        unlimitedSpeedActive = true;
+
+        DashEvent.Invoke();
     }
     private void ResetJump()
     {
