@@ -102,7 +102,7 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _FadeValue: 0.007130623
+    - _FadeValue: 0.010055542
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0

@@ -782,9 +782,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80e44afc4a39f924da1de38378ecdce7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
+  moveSpeed: 8.4
   groundDrag: 5
-  jumpForce: 12
+  jumpForce: 13.3
   jumpCooldown: 0.25
   airMultiplier: 0.52
   walkSpeed: 0
@@ -3185,8 +3185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b98b431b77198428ee0f4277c04308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensX: 10
-  sensY: 10
+  sensX: 6
+  sensY: 6
   orientation: {fileID: 979196120}
   input: {fileID: 372966967}
 --- !u!1 &1789433248
