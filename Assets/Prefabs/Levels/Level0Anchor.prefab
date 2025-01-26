@@ -452,6 +452,7 @@ MonoBehaviour:
   levelStartPoint: {fileID: 6764122975165191697}
   bubbleCount: 3
   transitionAnchor: {fileID: 4198905146026012921}
+  geometryRenderers: []
 --- !u!1 &3861001869275197903
 GameObject:
   m_ObjectHideFlags: 0
