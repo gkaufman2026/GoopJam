@@ -22,7 +22,7 @@ public class LevelManager : MonoBehaviour
 
     int currentLevelIndex = 0;
 
-    bool gamerunning = false;
+    //bool gamerunning = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
