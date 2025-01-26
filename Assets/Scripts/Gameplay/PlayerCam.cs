@@ -16,6 +16,8 @@ public class PlayerCam : MonoBehaviour
 
     public Slider sliderX, sliderY;
 
+    bool camLocked;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Start()
@@ -33,8 +35,13 @@ public class PlayerCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        sliderX.value = sensX;
-        sliderY.value = sensY;
+        if (sliderX != null)
+        {
+            sliderX.value = sensX;
+        }
+
+        if (camLocked)
+            return;
 
         float mouseX = lookInput.x * Time.deltaTime * sensX;
         float mouseY = lookInput.y * Time.deltaTime * sensY;
@@ -50,9 +57,15 @@ public class PlayerCam : MonoBehaviour
 
     public void AdjustXSpeed(float newSpeed) {
         sensX = newSpeed;
+        sensY = newSpeed;
     }
 
     public void AdjustYSpeed(float newSpeed) {
         sensY = newSpeed;
+    }
+
+    public void SetCamLock(bool value)
+    {
+        camLocked = value;
     }
 }
