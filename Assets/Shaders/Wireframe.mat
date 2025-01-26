@@ -102,6 +102,7 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
+    - _FadeValue: 0.0023765564
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -125,7 +126,7 @@ Material:
     m_Colors:
     - _BackgroundColor: {r: 0.28595626, g: 0, b: 0.4716981, a: 0}
     - _Background_Color: {r: 0, g: 0, b: 0, a: 0}
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor: {r: 0.8113208, g: 0, b: 0.62360317, a: 1}
     - _BaseOffset: {r: 0, g: 0.1, b: 0, a: 0}
     - _Base_Color: {r: 0.7803922, g: 0.054901943, b: 0.8588236, a: 1}
     - _Base_Offset: {r: 0, g: 0.1, b: 0, a: 0}

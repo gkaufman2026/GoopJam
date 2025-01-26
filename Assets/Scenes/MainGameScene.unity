@@ -835,18 +835,6 @@ MonoBehaviour:
   gravityEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1654867726}
-        m_TargetAssemblyTypeName: MaterialManager, Assembly-CSharp
-        m_MethodName: SetMaterialState
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1654867727}
         m_TargetAssemblyTypeName: StateFadeManager, Assembly-CSharp
         m_MethodName: ReceiveStateSwap
@@ -1679,6 +1667,7 @@ GameObject:
   - component: {fileID: 1142977268}
   - component: {fileID: 1142977267}
   - component: {fileID: 1142977266}
+  - component: {fileID: 1142977269}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1747,6 +1736,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1142977269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142977265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0a8d62a18293664983abe69097cc40d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piplineObj: {fileID: 11400000, guid: f288ae1f4751b564a96ac7587541f7a2, type: 2}
+  gravityTraveller: {fileID: 372966970}
 --- !u!1 &1143441506
 GameObject:
   m_ObjectHideFlags: 0
@@ -2407,6 +2410,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1143441507}
         m_TargetAssemblyTypeName: MusicManager, Assembly-CSharp
+        m_MethodName: SetFadeState
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1654867726}
+        m_TargetAssemblyTypeName: MaterialManager, Assembly-CSharp
         m_MethodName: SetFadeState
         m_Mode: 0
         m_Arguments:

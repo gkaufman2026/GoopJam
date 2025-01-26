@@ -53,7 +53,7 @@ public class StateFadeManager : MonoBehaviour
         }
         else if (state == GravityState.Up)
         {
-            // TODO: Perform the swap
+            fading = false;
             SetFadePercent.Invoke(1);
         }
 
