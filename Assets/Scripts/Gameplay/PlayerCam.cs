@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerCam : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class PlayerCam : MonoBehaviour
 
     [SerializeField] InputCollector input;
     Vector2 lookInput;
+
+    public Slider sliderX;
+
+    bool camLocked;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -30,6 +35,14 @@ public class PlayerCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (sliderX != null) {
+            sliderX.value = sensX;
+        }
+
+        if (camLocked) {
+            return;
+        }
+
         float mouseX = lookInput.x * Time.deltaTime * sensX;
         float mouseY = lookInput.y * Time.deltaTime * sensY;
 
@@ -40,5 +53,15 @@ public class PlayerCam : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+    }
+
+    public void AdjustXSpeed() {
+        sensX = sliderX.value;
+        sensY = sliderX.value;
+    }
+
+    public void SetCamLock(bool value)
+    {
+        camLocked = value;
     }
 }

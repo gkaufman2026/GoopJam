@@ -22,6 +22,8 @@ public class GauntletShootManager : MonoBehaviour
     public UnityEvent ShootEvent;
     public UnityEvent CantShootEvent;
 
+    bool camLocked;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -39,6 +41,9 @@ public class GauntletShootManager : MonoBehaviour
 
     void TryShoot()
     {
+        if (camLocked)
+            return;
+
         // TODO: Manage ammunition
         if (currentBubbles <= 0)
         {
@@ -90,5 +95,10 @@ public class GauntletShootManager : MonoBehaviour
         {
             bubbles[0].SetActive(false);
         }
+    }
+
+    public void SetCamLocked(bool locked)
+    {
+        camLocked = locked;
     }
 }
