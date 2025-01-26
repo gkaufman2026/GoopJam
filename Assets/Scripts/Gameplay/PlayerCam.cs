@@ -14,7 +14,7 @@ public class PlayerCam : MonoBehaviour
     [SerializeField] InputCollector input;
     Vector2 lookInput;
 
-    public Slider sliderX, sliderY;
+    public Slider sliderX;
 
     bool camLocked;
 
@@ -35,13 +35,13 @@ public class PlayerCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (sliderX != null)
-        {
+        if (sliderX != null) {
             sliderX.value = sensX;
         }
 
-        if (camLocked)
+        if (camLocked) {
             return;
+        }
 
         float mouseX = lookInput.x * Time.deltaTime * sensX;
         float mouseY = lookInput.y * Time.deltaTime * sensY;
@@ -55,13 +55,9 @@ public class PlayerCam : MonoBehaviour
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
     }
 
-    public void AdjustXSpeed(float newSpeed) {
-        sensX = newSpeed;
-        sensY = newSpeed;
-    }
-
-    public void AdjustYSpeed(float newSpeed) {
-        sensY = newSpeed;
+    public void AdjustXSpeed() {
+        sensX = sliderX.value;
+        sensY = sliderX.value;
     }
 
     public void SetCamLock(bool value)
