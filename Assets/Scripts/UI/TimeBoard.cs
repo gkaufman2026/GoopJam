@@ -30,7 +30,7 @@ public class TimeBoard : MonoBehaviour
             for (int i = 0; i < dataObject.times.Count; i++)
             {
                 Debug.Log("read");
-                texts[i].text = dataObject.times[i].ToString();
+                texts[i].text = (Mathf.Round(dataObject.times[i] * 100f) / 100f).ToString();
             }
         }
         else

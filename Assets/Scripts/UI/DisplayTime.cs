@@ -20,7 +20,8 @@ public class DisplayTime : MonoBehaviour
     }
     void handelReciveTime(float time)
     {
-        text.text = time.ToString();
+        text.text = (Mathf.Round(time * 100f) / 100f).ToString();
+        //time.ToString();
     }
     private void OnDestroy()
     {
