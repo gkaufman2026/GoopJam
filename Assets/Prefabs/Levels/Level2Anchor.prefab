@@ -1230,6 +1230,23 @@ MonoBehaviour:
   levelStartPoint: {fileID: 5359969961295550387}
   bubbleCount: 1
   transitionAnchor: {fileID: 8598122580858264773}
+  geometryRenderers:
+  - {fileID: 5201238145259788302}
+  - {fileID: 3254887481121314561}
+  - {fileID: 9003288284663635244}
+  - {fileID: 7370138679421563840}
+  - {fileID: 6781984523233083094}
+  - {fileID: 6913541764373015227}
+  - {fileID: 458100183218862486}
+  - {fileID: 4081990349118671139}
+  - {fileID: 3654011069004616447}
+  - {fileID: 5396876752544624232}
+  - {fileID: 7314010863875861023}
+  - {fileID: 8984632750832347961}
+  - {fileID: 1969012532808998030}
+  - {fileID: 5286572586926202908}
+  - {fileID: 6179687984742485759}
+  - {fileID: 6983564875335124757}
 --- !u!1 &5646822038177194983
 GameObject:
   m_ObjectHideFlags: 0
@@ -1879,9 +1896,29 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f3751261bae8454bb6d2bdc20dde76c, type: 3}
+--- !u!23 &1969012532808998030 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6518900275167794339, guid: 2f3751261bae8454bb6d2bdc20dde76c, type: 3}
+  m_PrefabInstance: {fileID: 4694051764222937133}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2926185823854244799 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7619942914076998546, guid: 2f3751261bae8454bb6d2bdc20dde76c, type: 3}
+  m_PrefabInstance: {fileID: 4694051764222937133}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &5286572586926202908 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 610575264023324721, guid: 2f3751261bae8454bb6d2bdc20dde76c, type: 3}
+  m_PrefabInstance: {fileID: 4694051764222937133}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6179687984742485759 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1505950836363003602, guid: 2f3751261bae8454bb6d2bdc20dde76c, type: 3}
+  m_PrefabInstance: {fileID: 4694051764222937133}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6983564875335124757 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2435889351024119608, guid: 2f3751261bae8454bb6d2bdc20dde76c, type: 3}
   m_PrefabInstance: {fileID: 4694051764222937133}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8598122580858264773 stripped

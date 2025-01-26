@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -33,6 +34,13 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
     [SerializeField] InputCollector input;
 
+    [SerializeField] float timeBetweenFootsteps = 1; // this is modified by speed;
+    float lastFootstepTime;
+
+    [Header("Events")]
+    public UnityEvent JumpEvent;
+    public UnityEvent FootstepEvent;
+    public UnityEvent LandEvent;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -50,8 +58,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        bool lastGrounded = grounded;
+
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
+
+        if (lastGrounded != grounded && grounded == true)
+        {
+            LandEvent.Invoke();
+        }
 
         //MyInput();
         SpeedControl();   
@@ -61,6 +76,20 @@ public class PlayerMovement : MonoBehaviour
             rb.linearDamping = groundDrag;
         else
             rb.linearDamping = 0;
+
+        if (grounded && rb.linearVelocity != Vector3.zero && (verticalInput != 0 || horizontalInput != 0))
+        {
+            Debug.Log("MOVESPEED IS " + rb.linearVelocity.magnitude / moveSpeed);
+            if (Time.time - lastFootstepTime >= timeBetweenFootsteps * rb.linearVelocity.magnitude / moveSpeed) //  * (moveSpeed - rb.linearVelocity.magnitude)
+            {
+                FootstepEvent.Invoke();
+                lastFootstepTime = Time.time;
+            }
+        }
+        else
+        {
+            lastFootstepTime = -1;
+        }
     }
 
     private void FixedUpdate()
@@ -118,6 +147,8 @@ public class PlayerMovement : MonoBehaviour
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+
+        JumpEvent.Invoke();
     }
     private void ResetJump()
     {

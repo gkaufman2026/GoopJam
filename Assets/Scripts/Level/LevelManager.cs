@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance;
     public UnityEvent<Level> RestartLevelEvent;
     public UnityEvent<Level> StartLevelEvent;
+    public UnityEvent<Level> CompleteLevelEvent;
 
     [SerializeField] List<Level> levelList;
 
@@ -22,7 +23,7 @@ public class LevelManager : MonoBehaviour
 
     int currentLevelIndex = 0;
 
-    bool gamerunning = false;
+    //bool gamerunning = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -57,6 +58,8 @@ public class LevelManager : MonoBehaviour
             return;
 
         currentState = LevelState.NoLevel;
+
+        CompleteLevelEvent.Invoke(currentLevel);
 
         GetNextLevel();
     }
