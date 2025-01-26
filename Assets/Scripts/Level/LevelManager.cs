@@ -60,7 +60,7 @@ public class LevelManager : MonoBehaviour
         currentState = LevelState.NoLevel;
 
         CompleteLevelEvent.Invoke(currentLevel);
-
+      
         GetNextLevel();
     }
 
@@ -83,6 +83,7 @@ public class LevelManager : MonoBehaviour
     public void StartNextLevel()
     {
         StartLevel(queuedLevel);
+
     }
 
     public void StartGame()
