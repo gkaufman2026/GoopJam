@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerCam : MonoBehaviour
 {
+    public Slider[] sliders;
     [SerializeField] float sensX;
     [SerializeField] float sensY;
 
@@ -30,6 +32,12 @@ public class PlayerCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        PlayerPrefs.SetFloat("currentSensX", sensX);
+        PlayerPrefs.SetFloat("currentSensY", sensY);
+
+        sliders[0].value = sensX;
+        sliders[1].value = sensY;
+
         float mouseX = lookInput.x * Time.deltaTime * sensX;
         float mouseY = lookInput.y * Time.deltaTime * sensY;
 
@@ -40,5 +48,13 @@ public class PlayerCam : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+    }
+
+    public void AdjustXSpeed(float newSpeed) {
+        sensX = newSpeed;
+    }
+
+    public void AdjustYSpeed(float newSpeed) {
+        sensY = newSpeed;
     }
 }
