@@ -888,7 +888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8.4
-  groundDrag: 8
+  groundDrag: 5
   jumpForce: 13.3
   jumpCooldown: 0.25
   airMultiplier: 0.52
@@ -3592,6 +3592,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   levelList:
+  - {fileID: 3302810715181361717, guid: cb023618770ecbd4586e3b4abf6eaa9b, type: 3}
   - {fileID: 1659494924793629172, guid: f3f5eea3a873fb34582d814610145b0b, type: 3}
   - {fileID: 3302810715181361717, guid: e67d709ede4e10b4f85fa5beac02a874, type: 3}
   - {fileID: 3302810715181361717, guid: 737e7470a8dec8248b8ab869be018a7c, type: 3}

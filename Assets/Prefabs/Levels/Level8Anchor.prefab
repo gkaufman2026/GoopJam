@@ -1892,34 +1892,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelStartPoint: {fileID: 5359969961295550387}
-  bubbleCount: 2
+  bubbleCount: 3
   transitionAnchor: {fileID: 8598122580858264773}
-  levelNumber: 4
+  levelNumber: 8
   geometryRenderers:
-  - {fileID: 5201238145259788302}
-  - {fileID: 5042332742363948274}
-  - {fileID: 9003288284663635244}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 4546605442740951814}
+  - {fileID: 9003288284663635244}
+  - {fileID: 5042332742363948274}
+  - {fileID: 1387032558397046772}
+  - {fileID: 6909156684822016898}
+  - {fileID: 5677708855406108311}
+  - {fileID: 6401889838413646754}
+  - {fileID: 374869657389004718}
   - {fileID: 611624899669417901}
-  - {fileID: 0}
   - {fileID: 5396876752544624232}
   - {fileID: 8984632750832347961}
-  - {fileID: 0}
+  - {fileID: 1567293061232080523}
+  - {fileID: 4398716272108665682}
   - {fileID: 1061508231886333112}
   - {fileID: 7314010863875861023}
-  - {fileID: 0}
   - {fileID: 3666826978973203146}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 1969012532808998030}
   - {fileID: 5286572586926202908}
   - {fileID: 6179687984742485759}
   - {fileID: 6983564875335124757}
-  - {fileID: 374869657389004718}
-  - {fileID: 6401889838413646754}
 --- !u!1 &5646822038177194983
 GameObject:
   m_ObjectHideFlags: 0
@@ -2884,11 +2880,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2943871527505614155, guid: 0567b7fa64b0ae24785e4604b32672a4, type: 3}
       propertyPath: OpenedDoorOffset.x
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2943871527505614155, guid: 0567b7fa64b0ae24785e4604b32672a4, type: 3}
       propertyPath: OpenedDoorOffset.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943871527505614155, guid: 0567b7fa64b0ae24785e4604b32672a4, type: 3}
+      propertyPath: OpenedDoorOffset.z
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5787428900923945006, guid: 0567b7fa64b0ae24785e4604b32672a4, type: 3}
       propertyPath: m_LocalScale.y
@@ -2939,6 +2939,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0567b7fa64b0ae24785e4604b32672a4, type: 3}
+--- !u!114 &4390521203707580549 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2943871527505614155, guid: 0567b7fa64b0ae24785e4604b32672a4, type: 3}
+  m_PrefabInstance: {fileID: 1456061581637207502}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96a64365363d2314497f6970c6257555, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4928604471244813792 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5787428900923945006, guid: 0567b7fa64b0ae24785e4604b32672a4, type: 3}
@@ -3116,7 +3127,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2063559374035249712, guid: 0dc4dfb5af9dbac409e95384b29d9b71, type: 3}
       propertyPath: triggerEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2063559374035249712, guid: 0dc4dfb5af9dbac409e95384b29d9b71, type: 3}
       propertyPath: triggerEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -3128,6 +3139,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2063559374035249712, guid: 0dc4dfb5af9dbac409e95384b29d9b71, type: 3}
       propertyPath: triggerEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063559374035249712, guid: 0dc4dfb5af9dbac409e95384b29d9b71, type: 3}
+      propertyPath: triggerEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2063559374035249712, guid: 0dc4dfb5af9dbac409e95384b29d9b71, type: 3}
@@ -3147,6 +3162,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8791519227375760237}
     - target: {fileID: 2063559374035249712, guid: 0dc4dfb5af9dbac409e95384b29d9b71, type: 3}
+      propertyPath: triggerEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 4390521203707580549}
+    - target: {fileID: 2063559374035249712, guid: 0dc4dfb5af9dbac409e95384b29d9b71, type: 3}
       propertyPath: triggerEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -3156,6 +3175,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2063559374035249712, guid: 0dc4dfb5af9dbac409e95384b29d9b71, type: 3}
       propertyPath: triggerEvent.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063559374035249712, guid: 0dc4dfb5af9dbac409e95384b29d9b71, type: 3}
+      propertyPath: triggerEvent.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2063559374035249712, guid: 0dc4dfb5af9dbac409e95384b29d9b71, type: 3}
@@ -3171,6 +3194,10 @@ PrefabInstance:
       value: OnTriggered
       objectReference: {fileID: 0}
     - target: {fileID: 2063559374035249712, guid: 0dc4dfb5af9dbac409e95384b29d9b71, type: 3}
+      propertyPath: triggerEvent.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: OnTriggered
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063559374035249712, guid: 0dc4dfb5af9dbac409e95384b29d9b71, type: 3}
       propertyPath: triggerEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: TriggeredDoor, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -3183,6 +3210,10 @@ PrefabInstance:
       value: TriggeredDoor, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2063559374035249712, guid: 0dc4dfb5af9dbac409e95384b29d9b71, type: 3}
+      propertyPath: triggerEvent.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
+      value: TriggeredDoor, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063559374035249712, guid: 0dc4dfb5af9dbac409e95384b29d9b71, type: 3}
       propertyPath: triggerEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
@@ -3192,6 +3223,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2063559374035249712, guid: 0dc4dfb5af9dbac409e95384b29d9b71, type: 3}
       propertyPath: triggerEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063559374035249712, guid: 0dc4dfb5af9dbac409e95384b29d9b71, type: 3}
+      propertyPath: triggerEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5690461727058692350, guid: 0dc4dfb5af9dbac409e95384b29d9b71, type: 3}
@@ -3389,11 +3424,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2943871527505614155, guid: 0567b7fa64b0ae24785e4604b32672a4, type: 3}
       propertyPath: OpenedDoorOffset.x
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2943871527505614155, guid: 0567b7fa64b0ae24785e4604b32672a4, type: 3}
       propertyPath: OpenedDoorOffset.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943871527505614155, guid: 0567b7fa64b0ae24785e4604b32672a4, type: 3}
+      propertyPath: OpenedDoorOffset.z
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 5787428900923945006, guid: 0567b7fa64b0ae24785e4604b32672a4, type: 3}
       propertyPath: m_LocalScale.y
@@ -3474,11 +3513,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2943871527505614155, guid: 0567b7fa64b0ae24785e4604b32672a4, type: 3}
       propertyPath: OpenedDoorOffset.x
-      value: -5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2943871527505614155, guid: 0567b7fa64b0ae24785e4604b32672a4, type: 3}
       propertyPath: OpenedDoorOffset.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943871527505614155, guid: 0567b7fa64b0ae24785e4604b32672a4, type: 3}
+      propertyPath: OpenedDoorOffset.z
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5787428900923945006, guid: 0567b7fa64b0ae24785e4604b32672a4, type: 3}
       propertyPath: m_LocalScale.y
