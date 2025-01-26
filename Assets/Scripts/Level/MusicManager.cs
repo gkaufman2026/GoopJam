@@ -43,9 +43,8 @@ public class MusicManager : MonoBehaviour
         Y2KSource.volume = (1 - currentFade) * volumeMultiplier;
     }
 
-    public void AdjustVolume(float newVolume) {
-        volumeMultiplier = newVolume;
-
+    public void AdjustVolume() {
+        volumeMultiplier = volumeSlider.value;
         SetVolumes();
     }
 }
