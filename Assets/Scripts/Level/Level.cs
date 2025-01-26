@@ -7,6 +7,8 @@ public class Level : MonoBehaviour
     public int bubbleCount = 3;
     public GameObject transitionAnchor;
 
+    public int levelNumber = 1;
+
     public List<Renderer> geometryRenderers;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
