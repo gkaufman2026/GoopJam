@@ -1466,6 +1466,8 @@ MonoBehaviour:
   levelStartPoint: {fileID: 723526505525420914}
   bubbleCount: 1
   transitionAnchor: {fileID: 1599512295941892009}
+  levelNumber: 1
+  geometryRenderers: []
 --- !u!1 &4802312336931688412
 GameObject:
   m_ObjectHideFlags: 0
@@ -1769,7 +1771,7 @@ Transform:
   m_GameObject: {fileID: 6631648002083890471}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: -0.50000006, z: -0.5, w: 0.50000006}
-  m_LocalPosition: {x: 15.39, y: 28.31, z: 1.27}
+  m_LocalPosition: {x: 8.17, y: 28.31, z: 1.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
