@@ -1617,6 +1617,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 640142362}
+        m_TargetAssemblyTypeName: NotificationManaher, Assembly-CSharp
+        m_MethodName: SetRestartPrompt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &372966973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2606,6 +2618,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 235389074955043105, guid: 91ee5bb852f75e9439785b084c183b9e, type: 3}
+      propertyPath: m_fontSize
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 235389074955043105, guid: 91ee5bb852f75e9439785b084c183b9e, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 32
+      objectReference: {fileID: 0}
     - target: {fileID: 3463720985971107208, guid: 91ee5bb852f75e9439785b084c183b9e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2685,6 +2705,18 @@ PrefabInstance:
     - target: {fileID: 3463720985971107208, guid: 91ee5bb852f75e9439785b084c183b9e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364409205606404052, guid: 91ee5bb852f75e9439785b084c183b9e, type: 3}
+      propertyPath: m_fontSize
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364409205606404052, guid: 91ee5bb852f75e9439785b084c183b9e, type: 3}
+      propertyPath: m_margin.z
+      value: -282.78027
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364409205606404052, guid: 91ee5bb852f75e9439785b084c183b9e, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 8490290329939372525, guid: 91ee5bb852f75e9439785b084c183b9e, type: 3}
       propertyPath: m_Name
@@ -4882,6 +4914,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 640142362}
+        m_TargetAssemblyTypeName: NotificationManaher, Assembly-CSharp
+        m_MethodName: RestartLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   StartLevelEvent:
     m_PersistentCalls:
       m_Calls:
@@ -4909,6 +4953,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 640142362}
+        m_TargetAssemblyTypeName: NotificationManaher, Assembly-CSharp
+        m_MethodName: StartLevel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   CompleteLevelEvent:
     m_PersistentCalls:
       m_Calls:
@@ -4927,10 +4983,13 @@ MonoBehaviour:
   levelList:
   - {fileID: 1659494924793629172, guid: f3f5eea3a873fb34582d814610145b0b, type: 3}
   - {fileID: 3302810715181361717, guid: e67d709ede4e10b4f85fa5beac02a874, type: 3}
-  - {fileID: 3302810715181361717, guid: 03a97b15faa604045beb92b6b3dacf4d, type: 3}
   - {fileID: 3302810715181361717, guid: 737e7470a8dec8248b8ab869be018a7c, type: 3}
+  - {fileID: 3302810715181361717, guid: 03a97b15faa604045beb92b6b3dacf4d, type: 3}
   - {fileID: 7027737168812449512, guid: 1ecc3a027c8d85d43bf786d8e6983fdd, type: 3}
-  - {fileID: 255447392445137574, guid: 076385d9bb4a2a145bfbddb43f029504, type: 3}
+  - {fileID: 3302810715181361717, guid: 9846c01e49d1b2542a62eaa09503db1c, type: 3}
+  - {fileID: 7027737168812449512, guid: a51e84652f2b5224a9e8497aeb882599, type: 3}
+  - {fileID: 3302810715181361717, guid: cb023618770ecbd4586e3b4abf6eaa9b, type: 3}
+  - {fileID: 3302810715181361717, guid: 7a393d0b2dd4148439e479527d8753d3, type: 3}
   StartTransitionAnchor: {fileID: 1146233698}
 --- !u!114 &1654867726
 MonoBehaviour:
@@ -5116,18 +5175,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 640142363}
         m_TargetAssemblyTypeName: DashUI, Assembly-CSharp
-        m_MethodName: UnlockDash
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 640142362}
-        m_TargetAssemblyTypeName: NotificationManaher, Assembly-CSharp
         m_MethodName: UnlockDash
         m_Mode: 1
         m_Arguments:
