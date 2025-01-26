@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering;
 
 public class GauntletShootManager : MonoBehaviour
@@ -16,6 +17,11 @@ public class GauntletShootManager : MonoBehaviour
     [SerializeField] List<GameObject> bubbles;
 
     InputCollector input;
+
+    [Header("Events")]
+    public UnityEvent ShootEvent;
+    public UnityEvent CantShootEvent;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -37,6 +43,7 @@ public class GauntletShootManager : MonoBehaviour
         if (currentBubbles <= 0)
         {
             Debug.LogWarning("NO BUBBLES LEFT!!! TODO: ALERT PLAYER");
+            CantShootEvent.Invoke();
             return;
         }
 
@@ -44,6 +51,8 @@ public class GauntletShootManager : MonoBehaviour
 
         LaunchProjectile();
         SetBubbleVisual();
+
+        ShootEvent.Invoke();
     }
 
     void LaunchProjectile()
