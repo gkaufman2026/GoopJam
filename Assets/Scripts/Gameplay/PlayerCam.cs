@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class PlayerCam : MonoBehaviour
 {
-    public Slider[] sliders;
     [SerializeField] float sensX;
     [SerializeField] float sensY;
 
@@ -14,6 +13,8 @@ public class PlayerCam : MonoBehaviour
 
     [SerializeField] InputCollector input;
     Vector2 lookInput;
+
+    public Slider sliderX, sliderY;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -32,11 +33,8 @@ public class PlayerCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerPrefs.SetFloat("currentSensX", sensX);
-        PlayerPrefs.SetFloat("currentSensY", sensY);
-
-        sliders[0].value = sensX;
-        sliders[1].value = sensY;
+        sliderX.value = sensX;
+        sliderY.value = sensY;
 
         float mouseX = lookInput.x * Time.deltaTime * sensX;
         float mouseY = lookInput.y * Time.deltaTime * sensY;
