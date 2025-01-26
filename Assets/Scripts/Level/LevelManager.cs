@@ -95,7 +95,7 @@ public class LevelManager : MonoBehaviour
 
         //  testLevelPrefab
 
-        Level nextLevel = Instantiate(levelList[currentLevelIndex], pos, Quaternion.identity);
+        Level nextLevel = Instantiate(levelList[currentLevelIndex], pos, Quaternion.Euler(Vector3.up * 90f));
         StartLevel(nextLevel);
     }
 

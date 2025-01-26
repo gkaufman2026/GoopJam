@@ -208,17 +208,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 244471}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 2.99}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2090728246}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.6568, y: 1.1135}
+  m_AnchoredPosition: {x: 1.8, y: 1.1135}
   m_SizeDelta: {x: 25.1986, y: 13.591}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &15764250
@@ -560,8 +560,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 198965211}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.94, y: 0.75241995, z: -1.585213}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -2.78, y: 0.75241995, z: 6.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -569,7 +569,7 @@ Transform:
   - {fileID: 1730328310}
   - {fileID: 990706417}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &219448756
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,7 +885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8.4
-  groundDrag: 5
+  groundDrag: 8
   jumpForce: 13.3
   jumpCooldown: 0.25
   airMultiplier: 0.52
@@ -3181,12 +3181,14 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   levelList:
+  - {fileID: 3302810715181361717, guid: 7a393d0b2dd4148439e479527d8753d3, type: 3}
+  - {fileID: 7027737168812449512, guid: a51e84652f2b5224a9e8497aeb882599, type: 3}
   - {fileID: 1659494924793629172, guid: f3f5eea3a873fb34582d814610145b0b, type: 3}
   - {fileID: 3302810715181361717, guid: e67d709ede4e10b4f85fa5beac02a874, type: 3}
   - {fileID: 3302810715181361717, guid: 737e7470a8dec8248b8ab869be018a7c, type: 3}
-  - {fileID: 3302810715181361717, guid: 9846c01e49d1b2542a62eaa09503db1c, type: 3}
   - {fileID: 3302810715181361717, guid: 03a97b15faa604045beb92b6b3dacf4d, type: 3}
   - {fileID: 7027737168812449512, guid: 1ecc3a027c8d85d43bf786d8e6983fdd, type: 3}
+  - {fileID: 3302810715181361717, guid: 9846c01e49d1b2542a62eaa09503db1c, type: 3}
   - {fileID: 255447392445137574, guid: 076385d9bb4a2a145bfbddb43f029504, type: 3}
   StartTransitionAnchor: {fileID: 1146233698}
 --- !u!114 &1654867726
