@@ -8,11 +8,22 @@ public class DashUI : MonoBehaviour
 
     [SerializeField] float greenForce;
 
+    bool dashUnlocked;
+
     bool lockText;
+
+    private void Start()
+    {
+        dashUnlocked = false;
+        text.text = string.Empty;
+    }
 
     // Update is called once per frame
     void Update()
     {
+        if (!dashUnlocked)
+            return; 
+
         if (!lockText)
         {
             float force = (Mathf.Abs(target.linearVelocity.y));
@@ -40,5 +51,10 @@ public class DashUI : MonoBehaviour
     public void GroundedEvent()
     {
         lockText = false;
+    }
+
+    public void UnlockDash()
+    {
+        dashUnlocked = true;
     }
 }

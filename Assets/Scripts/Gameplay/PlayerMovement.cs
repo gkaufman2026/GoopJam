@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     float dashTime;
     bool canDash;
 
+    bool dashUnlocked;
+
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
 
@@ -142,8 +144,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void TryDash()
     {
-        if (canDash)
+        if (canDash && dashUnlocked)
             Dash();
+    }
+
+    public void UnlockDash()
+    {
+        dashUnlocked = true;
     }
 
     private void MovePlayer()
