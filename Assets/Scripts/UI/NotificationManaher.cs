@@ -43,7 +43,7 @@ public class NotificationManaher : MonoBehaviour
                 notifText.text = "Buttons...";
                 break;
             case 4:
-                notifText.text = "I Believe In You";
+                notifText.text = "A Lesson In Momentum";
                 break;
             case 5:
                 notifText.text = "Tricky";
@@ -52,7 +52,7 @@ public class NotificationManaher : MonoBehaviour
                 notifText.text = "Dash unlocked. Press Shift.";
                 break;
             case 7:
-                notifText.text = "The Ceiling is Lavs";
+                notifText.text = "The Ceiling is Lava";
                 break;
             case 8:
                 notifText.text = "All Around";

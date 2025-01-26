@@ -25,3 +25,7 @@ public class UnlockDashScript : MonoBehaviour
         
     }
 }
+
+// buttons frwd wall
+// floor of believe
+// all around frwd wall, left wall
