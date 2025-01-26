@@ -24,6 +24,9 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask whatIsGround;
     bool grounded;
 
+    public float coyoteTime = 0.18f;
+    float coyoteTimeStart = -1f;
+
     public Transform orientation;
 
     float horizontalInput;
@@ -66,6 +69,9 @@ public class PlayerMovement : MonoBehaviour
         if (lastGrounded != grounded && grounded == true)
         {
             LandEvent.Invoke();
+        } else if (lastGrounded == true && !grounded)
+        {
+            coyoteTimeStart = Time.time;
         }
 
         //MyInput();
@@ -105,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
     private void TryJump()
     {
         // when to jump
-        if (readyToJump && grounded)
+        if (readyToJump && (grounded || Time.time - coyoteTimeStart <= coyoteTime))
         {
             readyToJump = false;
 

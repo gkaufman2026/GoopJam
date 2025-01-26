@@ -794,6 +794,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
+  coyoteTime: 0.25
   orientation: {fileID: 979196120}
   input: {fileID: 372966967}
   timeBetweenFootsteps: 0.37
