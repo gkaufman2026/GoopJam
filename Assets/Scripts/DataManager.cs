@@ -4,51 +4,67 @@ using System.IO;
 using NUnit.Framework;
 using System.Collections.Generic;
 
+public struct SaveDataSt
+{
+    public List<float> times;
+    public List<int> levelIds;
+
+    public SaveDataSt(int dummyData)
+    {
+        times = new List<float>();
+        levelIds = new List<int>();
+
+    }
+}
+
 public class DataManager : MonoBehaviour
 {
-    public struct SaveDataSt
-    {
-        public List<float> times;
-        public List<int> levelIds;
-
-       public SaveDataSt(int dummyData)
-        {
-            times = new List<float>();
-            levelIds = new List<int>();
-
-        }
-    }
-
-    string dataDir = Application.persistentDataPath;
+ 
+    string dataDir;
     [SerializeField] string dataFileName = "TimeSaveData";
     public SaveDataSt saveDataSt = new SaveDataSt(1);
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         TimeEvents.dataNotif += handleDataNotif;
+        //TimeEvents.dataRequest += SendData;
+        dataDir = Application.persistentDataPath;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     void handleDataNotif(Level level, float time)
     {
-        //check to see if the times are out of bounds
-        if(saveDataSt.times.Capacity < 0)
+        Debug.Log("DataObj created " + level.levelNumber + " cap " + saveDataSt.times.Capacity);
+        //if the levelNumber is out of bounds it must mean we have a new level
+        
+        if (saveDataSt.times.Count < level.levelNumber)
         {
+            Debug.Log("DataObject adding to data obj");
+
             //add the time to the
             saveDataSt.times.Add(time);
-            //saveDataSt.levelIds.Add(level.levelID);
+            saveDataSt.levelIds.Add(level.levelNumber);
 
+            Debug.Log("DataObject after add times " + saveDataSt.times.Capacity + " Level " + saveDataSt.levelIds.Capacity);
         }
-        //level id eventualy will be level id
-        if (saveDataSt.times[0] >= time)
+
+        ////level id eventualy will be level id
+        if (saveDataSt.times[level.levelNumber - 1] >= time && saveDataSt.levelIds.Contains(level.levelNumber))
         {
             //new time was faster
+            saveDataSt.times[level.levelNumber - 1] = time;
         }
+        else
+        {
+            Debug.LogError("Error with the handleDataNotif");
+        }
+
+        TimeEvents.dataRequest?.Invoke(this);
     }
 
     void SaveData(SaveDataSt data)
@@ -59,15 +75,15 @@ public class DataManager : MonoBehaviour
             Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
             string dataToStore = JsonUtility.ToJson(data, true);
 
-            using(FileStream stream = new FileStream(fullPath, FileMode.Create))
+            using (FileStream stream = new FileStream(fullPath, FileMode.Create))
             {
-                using(StreamWriter writer = new StreamWriter(stream)) 
+                using (StreamWriter writer = new StreamWriter(stream))
                 {
                     writer.Write(dataToStore);
                 }
             }
         }
-        catch(Exception e) 
+        catch (Exception e)
         {
             Debug.LogError("File log error " + e);
 
@@ -79,27 +95,37 @@ public class DataManager : MonoBehaviour
         string fullPath = Path.Combine(dataDir, dataFileName);
         SaveDataSt data = new SaveDataSt(1);
 
-        if(File.Exists(fullPath)) 
+        if (File.Exists(fullPath))
         {
-           try
+            try
             {
                 string dataToLoad = "";
 
-                using(FileStream stream = new FileStream(fullPath, FileMode.Open))
+                using (FileStream stream = new FileStream(fullPath, FileMode.Open))
                 {
-                    using(StreamReader reader = new StreamReader(stream))
+                    using (StreamReader reader = new StreamReader(stream))
                     {
                         dataToLoad = reader.ReadToEnd();
                     }
                 }
                 data = JsonUtility.FromJson<SaveDataSt>(dataToLoad);
             }
-            catch(Exception e) 
+            catch (Exception e)
             {
                 Debug.LogError("Issue reading from file" + e);
             }
         }
 
         return data;
+    }
+
+    void SendData(TimeBoard obj)
+    {
+        obj.dataObject = saveDataSt;
+    }
+    private void OnDestroy()
+    {
+        TimeEvents.dataNotif -= handleDataNotif;
+        //TimeEvents.dataRequest -= SendData;
     }
 }

@@ -22,10 +22,13 @@ public class LevelTimer : MonoBehaviour
         if(isActive) 
         {
             timer += Time.deltaTime;
+            TimeEvents.reciveTime.Invoke(timer);
         }
     }
     void HandelLevelComplete(Level level)
     {
+        Debug.Log("calling complete level");
+        TimeEvents.dataNotif?.Invoke(level, timer);
         TimeEvents.timerNotifactions?.Invoke(TimeEvents.TimerStatus.STOP);
     }
     void HandelLevelStart(Level level)
@@ -78,6 +81,12 @@ public class LevelTimer : MonoBehaviour
         {
             isActive = true;
         }
+    }
+    private void OnDestroy()
+    {
+        TimeEvents.timerNotifactions -= HandleTimerNotif;
+        LevelManager.Instance.StartLevelEvent.RemoveListener(HandelLevelStart);
+        LevelManager.Instance.CompleteLevelEvent.RemoveListener(HandelLevelComplete);
     }
 
 }
