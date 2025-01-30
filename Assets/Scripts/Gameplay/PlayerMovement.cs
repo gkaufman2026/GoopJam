@@ -122,6 +122,11 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
+
+        if (unlimitedSpeedActive)
+        {
+            rb.AddForce(traveller.GetCurrentForce * -1); //  * Time.deltaTime
+        }
     }
     private void MyInput(Vector2 moveValue)
     {
@@ -179,7 +184,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                rb.AddForce(traveller.GetCurrentForce * -1); //  * Time.deltaTime
+                //rb.AddForce(traveller.GetCurrentForce * -1); //  * Time.deltaTime
                 return;
             }          
         }
